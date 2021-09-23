@@ -46,8 +46,17 @@ _abs_start:
     .cfi_startproc
     .cfi_undefined ra
 
-    csrw mie, 0
-    csrw mip, 0
+    csrr t1, misa
+    addi t2, x0, 1
+    slli   t2, t2, 18 // has S_EXTENSION	
+    and    t2, t1, t2
+    bne    x0, t2, 1f
+    j 2f
+1:
+    csrwi mie, 0
+    csrwi mip, 0
+2:
+    csrwi mstatus, 0
 
     li  x1, 0
     li  x2, 0
