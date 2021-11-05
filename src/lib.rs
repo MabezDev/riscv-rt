@@ -392,6 +392,7 @@ pub unsafe extern "C" fn start_rust() -> ! {
 /// Registers saved in trap handler
 #[allow(missing_docs)]
 #[repr(C)]
+#[derive(Debug)]
 pub struct TrapFrame {
     pub ra: usize,
     pub t0: usize,
