@@ -497,8 +497,8 @@ extern "C" {
 
 #[doc(hidden)]
 pub union Vector {
-    handler: unsafe extern "C" fn(),
-    reserved: usize,
+    pub handler: unsafe extern "C" fn(),
+    pub reserved: usize,
 }
 
 #[doc(hidden)]
